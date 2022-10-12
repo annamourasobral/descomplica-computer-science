@@ -1,1 +1,1 @@
-Repository related to the Computer Science course at Descomplica University.
+Repository related to the Computer Science course at Uniamerica Descomplica University.
