@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+    <script src="./js/script.js"></script>
+
     <title>Pratica Integradora Desenvolvimento de Software</title>
   </head>
   <body>
-    <button type="button" class="btn btn-danger">Danger</button>
     <h1>Pratica Integradora Desenvolvimento de Software</h1>
-    <h2>Trabalhando com tabelas</h2>
-    <table>
-        <tr>
-            <th>Atividade Prática 1</th>
-            <th>Atividade Prática 2</th>
-        </tr>
-        <tr>
-            <td>Feito</td>
-            <td>Feito</td>
-        </tr>
-    </table>
+
+    <form>
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="name" required/>
+      <label for="sobrenome">Sobrenome</label>
+      <input type="text" id="sobrenome" name="sobrenome" required/>
+      <label for="email">E-mail</label>
+      <input type="text" id="email" name="email" required/>
+      <button type="button" onclick="salvarUsuario()"">Salvar usuário</button>
+    </form>
+    <div id="usuario"></div>
   </body>
 </html>
