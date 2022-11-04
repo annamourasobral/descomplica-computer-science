@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="./css/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -23,11 +21,11 @@
         margin-top: 10rem;
         display: flex;
         flex-direction: column;
-        max-width: 20rem;
+        max-width: 10rem;
         gap: 0.5rem;
       }
 
-      #usuario {
+      #mensagem {
         text-align: center;
       }
     </style>
@@ -35,33 +33,33 @@
   </head>
   <body>
     <form class="mb-3">
-      <label for="nome" class="form-label">Nome</label>
-      <input type="text" id="nome" name="name" required class="form-control" />
-      <label for="sobrenome" class="form-label">Sobrenome</label>
+      <label for="valor-1" class="form-label">Valor 1</label>
       <input
-        type="text"
-        id="sobrenome"
-        name="sobrenome"
+        type="number"
+        id="valor-1"
+        name="valor-1"
         required
+        min="0"
         class="form-control"
       />
-      <label for="email" class="form-label">E-mail</label>
+      <label for="valor-2" class="form-label">Valor 2</label>
       <input
-        type="text"
-        id="email"
-        name="email"
+        type="number"
+        id="valor-2"
+        name="valor-2"
         required
+        min="0"
         class="form-control"
       />
       <button
         type="button"
-        onclick="salvarUsuario()"
+        onclick="compararSoma()"
         class="btn btn-primary mb-3"
       >
-        Salvar usuário
+        Somar
       </button>
     </form>
-    <div id="usuario"></div>
+    <div id="mensagem"></div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -69,15 +67,22 @@
     ></script>
 
     <script>
-      function salvarUsuario() {
-        var nome = document.getElementById('nome').value;
-        var sobrenome = document.getElementById('sobrenome').value;
-        var email = document.getElementById('email').value;
-        var usuario = document.getElementById('usuario');
+      function compararSoma() {
+        var valorUm = parseInt(document.getElementById('valor-1').value);
+        var valorDois = parseInt(document.getElementById('valor-2').value);
+        var mensagem = document.getElementById('mensagem');
 
-        var usuarioFrase = `Olá, meu nome é ${nome} ${sobrenome}, e meu email é ${email}`;
+        var valorTotal = valorUm + valorDois;
 
-        usuario.innerHTML = usuarioFrase;
+        console.log(valorTotal);
+
+        if (valorTotal < 10) {
+          mensagem.innerHTML = 'A soma dos dois valores é menor que 10';
+        } else if (valorTotal === 10) {
+          mensagem.innerHTML = 'A soma dos dois valores é igual a 10';
+        } else {
+          mensagem.innerHTML = 'A soma dos dois valores é maior que 10';
+        }
       }
     </script>
   </body>
