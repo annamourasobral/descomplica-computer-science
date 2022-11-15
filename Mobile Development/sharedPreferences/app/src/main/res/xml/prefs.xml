@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:summary="Digite suas informações"
+        android:title="Dados" >
+        <EditTextPreference
+            android:key="nome"
+            android:title="Nome" />
+        <EditTextPreference
+            android:key="sobrenome"
+            android:title="Sobrenome" />
+        <EditTextPreference
+            android:key="idade"
+            android:title="Idade" />
+    </PreferenceCategory>
+</PreferenceScreen>
