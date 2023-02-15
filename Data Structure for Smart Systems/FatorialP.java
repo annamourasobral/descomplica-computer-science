@@ -22,3 +22,37 @@ class FatorialP {
         }
 
     }
+
+    public static void main (String arg [ ])
+
+        {
+
+            int nro;
+
+ 
+
+            nro = Integer.parseInt(JOptionPane.showInputDialog(“Type a number that you want to know the factorial”));
+
+            if (nro < 0)
+
+               {
+
+                  System.out.println (“This value is not valid, the number must be equal or bigger than zero”);
+
+                  System.exit(0);
+
+               }
+
+            else
+
+               {
+
+                  fatP(nro, nro, 1);
+
+               }
+
+            System.exit(0);
+
+         }
+
+   }
