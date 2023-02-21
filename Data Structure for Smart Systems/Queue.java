@@ -2,33 +2,33 @@ import javax.swing.*;
 
  
 
-class Fila
+class Queue
 
 {
 
-  int tamanho, inicio, fim, total;
+  int size, beginning, end, total;
 
-  double vetor[];
+  double vector[];
 
-  Fila(int tam)
+  Queue(int siz)
 
    {
 
-     inicio = 0;
+     beginning = 0;
 
-     fim = 0;
+     end = 0;
 
      total = 0;
 
-     tamanho = tam;
+     size = siz;
 
-     vetor = new double[tam];
+     vector = new double[siz];
 
    } 
 
  
 
-  public boolean FilaVazia( )
+  public boolean EmptyQueue( )
 
    {
 
@@ -52,11 +52,11 @@ class Fila
 
  
 
-  public boolean FilaCheia( )
+  public boolean FullQueue( )
 
    {
 
-     if (total >= tamanho)
+     if (total >= size)
 
       {
 
@@ -76,25 +76,25 @@ class Fila
 
  
 
-  public void Enfileirar (double elemento)
+  public void Row (double element)
 
    {
 
-     if (! FilaCheia( ))
+     if (! FullQueue( ))
 
       {
 
-        vetor[fim] = elemento;
+        vector[end] = element;
 
-        fim = fim + 1;
+        end = end + 1;
 
         total = total + 1;
 
-        if (fim >= tamanho)
+        if (end >= size)
 
          {
 
-           fim = 0;
+           end = 0;
 
          }
 
@@ -104,7 +104,7 @@ class Fila
 
       {
 
-        System.out.println (“Fila Cheia”);
+        System.out.println (“Full Queue”);
 
       }
 
@@ -112,19 +112,17 @@ class Fila
 
  
 
-  // retorna o valor desenfileirado
-
-  public double Desenfileirar ()
+  public double ToUnset ()
 
    {
 
-     double desenfileirado = 0.0;
+     double unset = 0.0;
 
-     if (FilaVazia())
+     if (EmptyQueue())
 
       {
 
-        System.out.println(“Fila Vazia”);
+        System.out.println(“Empty Queue”);
 
       }
 
@@ -132,37 +130,37 @@ class Fila
 
       {
 
-        desenfileirado = vetor[inicio];
+        unset = vector[beginning];
 
-        inicio = inicio + 1;
+        beginning = beginning + 1;
 
         total = total – 1;
 
-        if (inicio >= tamanho)
+        if (beginning >= size)
 
          {
 
-           inicio = 0;
+           beginning = 0;
 
          }
 
       }
 
-     return desenfileirado;
+     return unset;
 
    }
 
  
 
-  public void ElementoInicio( )
+  public void ElementBeginning( )
 
    {
 
-     if (!FilaVazia())
+     if (!EmptyQueue())
 
       {
 
-        System.out.println("O primeiro elemento é "+ vetor[inicio]);
+        System.out.println("The first element is "+ vector[beginning]);
 
       }
 
@@ -170,7 +168,7 @@ class Fila
 
       {
 
-        System.out.println(“Fila Vazia”);
+        System.out.println(“Empty Queue”);
 
       }
 
@@ -178,7 +176,7 @@ class Fila
 
  
 
-  public void MostrarFila( )
+  public void ShowQueue( )
 
    {
 
@@ -186,18 +184,18 @@ class Fila
 
  
 
-     aux = inicio;
+     aux = beginning;
 
      for (i = 1 ; i <= total ; i++)
 
       {
 
-        JOptionPane.showMessageDialog(null, "Elemento " + vetor[aux]
-                                      + " posição " + i);
+        JOptionPane.showMessageDialog(null, "Element " + vector[aux]
+                                      + " position " + i);
 
         aux = aux + 1;
 
-        if (aux >= tamanho)
+        if (aux >= size)
 
          {
 
@@ -221,9 +219,9 @@ class Exemplo1
 
     {
 
-      Fila realFila = new Fila(5);
+      Queue realQueue = new Queue(5);
 
-      double entrada = 0.0;
+      double entry = 0.0;
 
       int i;
 
@@ -233,14 +231,14 @@ class Exemplo1
 
        {
 
-         entrada = Double.parseDouble(JOptionPane.showInputDialog(
-                                      “Digite um valor real”));
+         entry = Double.parseDouble(JOptionPane.showInputDialog(
+                                      “Type a real value”));
 
-         realFila.Enfileirar(entrada);
+         realQueue.Row(entry);
 
        }
 
-      realFila.MostrarFila( );
+      realQueue.ShowQueue( );
 
       System.exit(0);
 
