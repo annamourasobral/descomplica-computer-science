@@ -6,7 +6,7 @@ class No
 
 {
 
-  double elemento;
+  double element;
 
   No prox;
 
@@ -16,7 +16,7 @@ class No
 
    {
 
-     elemento = elem;
+     element = elem;
 
      prox = null;
 
@@ -26,31 +26,31 @@ class No
 
  
 
-class ListaLigada
+class ConnectedList
 
 {
 
-  No primeiro, ultimo;
+  No first, last;
 
  
 
-  ListaLigada ()
+  ConnectedList ()
 
    {
 
-     primeiro = null;
+     first = null;
 
-     ultimo = null;
+     last = null;
 
    }
 
  
 
-  public boolean ListaVazia( )
+  public boolean EmptyList( )
 
    {
 
-     if (primeiro == null && ultimo == null)
+     if (first == null && last == null)
 
       {
 
@@ -70,15 +70,15 @@ class ListaLigada
 
  
 
-  public void InserirInicio (No novoNo)
+  public void InsertBeginning (No newNo)
 
    {
 
-     if (ListaVazia())
+     if (EmptyList())
 
       {
 
-        ultimo = novoNo;
+        last = newNo;
 
       }
 
@@ -86,25 +86,25 @@ class ListaLigada
 
       {
 
-        novoNo.prox = primeiro;
+        newNo.prox = first;
 
       }
 
-     primeiro = novoNo;
+     first = newNo;
 
    }
 
  
 
-  public void InserirFinal (No novoNo)
+  public void InsertEnd (No newNo)
 
    {
 
-     if (ListaVazia())
+     if (EmptyList())
 
       {
 
-        primeiro = novoNo;
+        first = newNo;
 
       }
 
@@ -112,23 +112,23 @@ class ListaLigada
 
       {
 
-        ultimo.prox = novoNo;
+        last.prox = newNo;
 
       }
 
-     ultimo = novoNo;
+     last = newNo;
 
    }
 
  
 
-  public int ContarNos ( )
+  public int CountNodes ( )
 
    {
 
-     int tamanho = 0;
+     int size = 0;
 
-     No NoTemp = primeiro;
+     No NoTemp = first;
 
  
 
@@ -136,35 +136,35 @@ class ListaLigada
 
       {
 
-        tamanho = tamanho + 1;
+        size = size + 1;
 
         NoTemp = NoTemp.prox;
 
       }
 
-     return tamanho;
+     return size;
 
   }
 
  
 
-  public void InserirMeio(No NovoNo, int posicao)
+  public void InsertInTheMiddle(No NovoNo, int position)
 
    {
 
-     No NoTemp = primeiro;
+     No NoTemp = first;
 
-     int NroNos, posAux = 1;
+     int NbrNodes, posAux = 1;
 
  
 
-     NroNos = ContarNos( );
+     NbrNodes = CountNodes( );
 
-     if (posicao <= 1)
+     if (position <= 1)
 
       {
 
-        InserirInicio(NovoNo);
+        InsertBeginning(NovoNo);
 
       }
 
@@ -172,11 +172,11 @@ class ListaLigada
 
       {
 
-        if (posicao > NroNos)
+        if (position > NbrNodes)
 
          {
 
-           InserirFinal(NovoNo);
+           InsertEnd(NovoNo);
 
          }
 
@@ -184,7 +184,7 @@ class ListaLigada
 
          {
 
-           while (posAux < (posicao – 1))
+           while (posAux < (position – 1))
 
             {
 
@@ -206,21 +206,21 @@ class ListaLigada
 
  
 
-  public void Remover (double elemento)
+  public void Remove (double element)
 
    {
 
-     No NoTemp = primeiro;
+     No NoTemp = first;
 
      No NoAnt = null;
 
  
 
-     if (primeiro.elemento == elemento)
+     if (first.element == element)
 
       {
 
-        primeiro = primeiro.prox;
+        first = first.prox;
 
       }
 
@@ -228,7 +228,7 @@ class ListaLigada
 
       {
 
-        while (NoTemp != null && NoTemp.elemento != elemento)
+        while (NoTemp != null && NoTemp.element != element)
 
          {
 
@@ -246,11 +246,11 @@ class ListaLigada
 
          }
 
-        if (NoTemp == ultimo)
+        if (NoTemp == last)
 
          {
 
-           ultimo = NoAnt;
+           last = NoAnt;
 
          }
 
@@ -260,16 +260,16 @@ class ListaLigada
 
  
 
-  public void ElementoInicio( )
+  public void ElementBeginning( )
 
    {
 
-     if (! ListaVazia())
+     if (! EmptyList())
 
       {
 
-        System.out.println("O primeiro elemento é " +
-                            primeiro.elemento);
+        System.out.println("The first element is " +
+                            first.element);
 
       }
 
@@ -277,7 +277,7 @@ class ListaLigada
 
       {
 
-        System.out.println(“Lista Ligada Vazia”);
+        System.out.println(“Empty Connected List”);
 
       }
 
@@ -285,16 +285,16 @@ class ListaLigada
 
  
 
-  public void ElementoFinal( )
+  public void FinalElement( )
 
    {
 
-     if (! ListaVazia())
+     if (! EmptyList())
 
       {
 
-        System.out.println("O último elemento é " +
-                            ultimo.elemento);
+        System.out.println("The last element is " +
+                            last.element);
 
       }
 
@@ -302,7 +302,7 @@ class ListaLigada
 
       {
 
-        System.out.println(“Lista Ligada Vazia”);
+        System.out.println(“Empty Connected List”);
 
       }
 
@@ -310,13 +310,13 @@ class ListaLigada
 
  
 
-  public No BuscarNo (double elemento)
+  public No SearchNbr (double element)
 
    {
 
      int i = 1;
 
-     No NoTemp = primeiro;
+     No NoTemp = first;
 
  
 
@@ -324,11 +324,11 @@ class ListaLigada
 
       {
 
-        if (NoTemp.elemento == elemento)
+        if (NoTemp.element == element)
 
          {
 
-           System.out.println("No " + NoTemp.elemento + " posição "
+           System.out.println("No " + NoTemp.element + " position "
                                + i);
 
            return NoTemp;
@@ -347,13 +347,13 @@ class ListaLigada
 
  
 
-  public void MostrarLista( )
+  public void ShowList( )
 
    {
 
      int i = 1;
 
-     No NoTemp = primeiro;
+     No NoTemp = first;
 
  
 
@@ -361,7 +361,7 @@ class ListaLigada
 
       {
 
-        System.out.println("Elemento " + NoTemp.elemento + " posição
+        System.out.println("Element " + NoTemp.element + " position
                            " + i);
 
         NoTemp = NoTemp.prox;
@@ -384,7 +384,7 @@ class Exemplo1
 
    {
 
-     ListaLigada realLista = new ListaLigada();
+     ConnectedList realList = new ConnectedList();
 
      int i;
 
@@ -397,13 +397,13 @@ class Exemplo1
       {
 
         num = Double.parseDouble(JOptionPane.showInputDialog(
-                                 “digite um número real”));
+                                 “type a real number”));
 
-        realLista.InserirFinal(new No(num));
+        realList.InsertEnd(new No(num));
 
       }
 
-     realLista.MostrarLista();
+     realList.ShowList();
 
      System.exit(0);
 
